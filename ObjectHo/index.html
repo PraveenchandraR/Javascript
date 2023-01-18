@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ObjectHO</title>
+  </head>
+  <body>
+    <pre>
+<h3>Q.1 Create a Function</h3><br>
+A. function Check(obj1){
+   obj1.setter=function(){
+     console.log(obj1.name);
+   }
+}<br>
+<h3>Q.2 Delete a Parameter</h3><br>
+A. 
+function Check(obj1) {
+     for(let value in obj1)
+     {
+       if(value==="rollno")
+       {
+         delete obj1.rollno;
+         return true;
+       }
+     
+     else
+     {
+       return false;
+     }
+     }
+}<br>
+<h3>Q.3 Check whether the Package is Dream Package or not</h3><br>
+A. function Check(obj1) {
+    if(obj1.salary>500000)
+    {
+      return "Dream";
+    }
+    else{
+      return "NotDream";
+    }
+}<br>
+<h3>Q.4 Check whether the Object has a parameter or not</h3><br>
+A. 
+function Check(obj1) {
+   var count=0;
+   for(let Key in obj1)
+   {
+     count++;
+   }
+   if(count===0)
+   {
+     return false;
+   }
+   else{
+     return true;
+   }
+}<br>
+<h3>Q.5 Merge the Objects</h3><br>
+A. function Check(obj1,obj2) {
+    let obj=Object.assign(obj1,obj2);
+    return obj;
+}<br>
+<h3>Q.6 Object Multiplyer</h3><br>
+A. function Check(a,obj1) {
+ obj1.id=obj1.id*a;
+ obj1.houseno=obj1.houseno*a;
+ return obj1;
+}<br>
+<h3>Q.7 Find the  sum of Object Members</h3><br>
+A. function Check(obj1) {
+  let sum=obj1.p1+obj1.p2+obj1.p3;
+  return sum;
+}<br>
 
+</pre>
+  </body>
+</html>
