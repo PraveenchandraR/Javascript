@@ -1,1 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSho5</title>
+  </head>
+  <body>
+    <pre>
+<h3>Q.1 Count Characters</h3><br>
+A. const countCharacters = (S) => 
+{
+   var B=[0,0];
+    for(let i in S)
+    {
+      if(S[i]==='A')
+      {
+      B[0]++;
+      }
+      else if(S[i]==='D')
+      {
+       B[1]++;
+      }
+    }
+    return B;
+};<br>
+<h3>Q.2 Count the Heads</h3><br>
+A. 
+var Count_Occ = (s) => 
+{
+ let n=s.length;
+    let str = s.split("").sort().join("");
+    let ans="";
+    for(let i=0;i<n;i++) {//for the character thats is needed to be checked.
+      let count =0;
+      for(let j=0;j<n;j++) {//for the count of that character
+      //this condition will tell you if the character has come first time or not
+        if(str[i]===str[j] && i>j) {
+          break;
+        }
+        
+        if(str[i]===str[j]) {
+          count+=1;
+        }
+      }
+      if(count>1) {
+        ans+=str[i]+count;
+      }
+    }
+    return ans;
 
+};
+ 
+<br>
+<h3>Q.3 Count the Vowels</h3><br>
+A. var Count_Vowels= (S) => 
+{
+      
+let numberOfVowels = 0;
+
+for(let i = 0; i < S.length; i++) {
+  if(S[i] === 'a' || S[i] === 'e' || S[i] === 'i' || S[i] === 'o'
+  || S[i] === 'u') {
+    numberOfVowels++;
+  }
+}
+
+return(numberOfVowels);
+};<br>
+<h3>Q.4 Concatenate the Strings</h3><br>
+A. var Concatenate_Strings = (S1, S2) => 
+{
+      var S3="";
+      S3=(S1+S2);
+      return(S3);
+};<br>
+<h3>Q.6 Find Length</h3><br>
+A. const findLength = (S) => 
+{
+    let count=0;
+    for(let i=0;S[i]!==undefined;i++)
+    {
+      count++;
+    }
+    return count;
+};<br>
+<h3>Q.7 Find the Winner</h3><br>
+A. var Game_Winner = (S) => 
+{
+  let countA=0;
+  let countD=0;
+  for(let i=0;i<S.length;i++) {
+    if(S[i]==='A') {
+      countA+=1;
+      
+    }
+    else {
+      countD+=1;
+    }
+  }
+  if(countA>countD) {
+    return "Aditya";
+  }
+  else if(countA<countD) {
+    return "Danish";
+    
+  }
+  else {
+    return "Draw";
+  }
+}<br>
+<h3>Q.8 Join Strings</h3><br>
+A. const joinStrings = (S, P) => 
+{
+ 
+  return(S+P);
+};
+ <br>
+<h3>Q.9 Plaindrome Check</h3><br>
+A. var Palin_Check = (str) =>
+{
+	 let N=str.length;
+	 let revstr="";
+	 for(let i=N-1;i>=0;i--)
+	 {
+	   revstr+=str[i];
+	 }
+	 if(revstr==str)
+	 {
+	   return "True";
+	 }
+	 
+	   return "False";
+	 
+}<br>
+<h3>Q.10 Reverse the string</h3><br>
+A. var Reverse_String = (str) => 
+{
+ 
+      var revstring="";
+       for(let i=str.length-1;i>=0;i--){
+         revstring+=str[i];
+       }
+        return revstring;
+};<br>
+<h3>Q.11 Match the strings</h3><br>
+A.var String_Match = (S1,S2) => 
+{
+      if(S1===S2)
+      {
+        return "YES"
+      }
+      else{
+        return "NO";
+      }
+}; <br>
+<h3>Q.12 Replace the strings</h3><br>
+A. var Replace = (S, pattern , text) => 
+{
+      return S.replace(pattern,text);
+};<br>
+<h3>Q.13 Split the string</h3><br>
+A.var Split_the_string = (S) => 
+{
+  
+        return S.split(" ");
+};
+ <br>
+<h3>Q.13 Count the Vowels and Consonants</h3><br>
+A. 
+var Count_Vowels= (S) => 
+{
+    let vowels = 'aeiouAEIOU';
+       let count = 0;
+      for (let i = 0; i<=S.length; i++) {
+        if (vowels.indexOf(S[i]) !== -1) {
+               count++;
+          }
+      }
+       return count;  
+};
+var Count_Consonants= (S) => 
+{
+       let vowels = 'aeiouAEIOU';
+     let count = 0;
+     for (let i = 0; i<S.length; i++) {
+       <span></span>if (vowels.indexOf(S[i]) === -1 && S[i].match(/[a-zA-Z]/i)) {
+           count++;
+         }
+       }
+      return count;
+};<br>       
+    </pre>
+  </body>
+</html>
