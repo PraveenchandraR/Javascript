@@ -1,1 +1,57 @@
-
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Maps-and-Sets</title>
+  </head>
+  <body>
+    <pre>
+        <h3>Question 1.  You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+        Your task is to remove all the duplicate occurrences of characters in the string.</h3><br>
+        <span>Input- abcadeecfb</span>
+        <span>output- output has to be abcdef</span><BR>
+        A.  function RemoveDuplicates(str) {
+              let alphabets = new Set();
+              let output = '';
+        
+              for (let i = 0; i < str.length; i++) {
+                  if (!alphabets.has(str[i])) {
+                      alphabets.add(str[i]);
+                      output= output+ str[i];
+                  }
+               }
+        
+               return output;
+          }<br>
+          <h3>Q2. You are given a string (STR) of length N, consisting of only the lower case English alphabet.
+          Your task is to remove all the duplicate occurrences of characters in the string.</h3><br>
+        ex:- input :- abcdeecfb <br>
+        op:- a=2<br>
+            b=2 <br>
+            c=2 <br>
+            d=1 <br>
+            e=2 <br>
+            f=1 <br>
+            code :- <br>
+            <pre>
+        function countAlphabet(str) {
+           let countMap = new Map();
+                   for (let i = 0; i < str.length; i++) {
+               if (!countMap.has(str[i])) {
+                   countMap.set(str[i], 1);
+               } else {
+                   countMap.set(str[i], countMap.get(str[i]) + 1);
+               }
+            }
+        
+            for (let [key, value] of countMap.entries()) {
+                console.log(key + "=" + value);
+            }
+        }
+          countAlphabet("abcadeecfb");
+            </pre>
+    </pre>
+  </body>
+</html>
