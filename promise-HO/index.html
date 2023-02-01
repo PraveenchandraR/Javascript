@@ -1,1 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promise-HO</title>
+  </head>
+  <body>
+    <pre>
+<h3>Q1. "Write a callback function to print numbers from 1 to 7, in which 1 should be printed after 1 sec,
+     2 should be printed after 2 sec, 3 should be printed after 3 sec, and so on. 
 
+Explain callback hell.
+Numbers
+1
+2
+3
+4
+5
+6
+7"</h3><br>
+A. <pre></pre> let count=0;
+    setTimeout(function(){
+        console.log(++count);
+        setTimeout(function(){
+            console.log(++count);
+            setTimeout(function(){
+                console.log(++count);
+                setTimeout(function(){
+                    console.log(++count);
+                    setTimeout(function(){
+                        console.log(++count);
+                        setTimeout(function(){
+                            console.log(++count);
+                            setTimeout(function(){
+                                console.log(++count);
+                            },7000)
+                        },6000)
+                    },5000)
+                },4000)
+            },3000)
+        },2000)
+    },1000)</pre>
+    <br />
+    <h3>
+      Q3. Write promise function to print numbers from 1 to 7, in which 1 should
+      be printed after 1 sec , 2 should be printed after 2 sec, 3 should be
+      printed after 3 sec and so on. Numbers 1 2 3 4 5 6 7
+    </h3>
+    <br />
+    A.
+    <pre>
+function printNumbers(n){
+            let Prom = new Promise(function(resolve){
+                setTimeout(function(){
+                    resolve(n);
+                },n*1000)
+            })
+            return Prom;
+        }
+        
+        printNumbers(1).then(function(n){
+            console.log(n);
+            return printNumbers(2);
+        }).then(function(n){
+            console.log(n);
+            return printNumbers(3);
+        }).then(function(n){
+            console.log(n);
+            return printNumbers(4);
+        }).then(function(n){
+            console.log(n);
+            return printNumbers(5);
+        }).then(function(n){
+            console.log(n);
+            return printNumbers(6);
+        }).then(function(n){
+            console.log(n);
+            return printNumbers(7);
+        }).then(function(n){
+            console.log(n);
+        }) </pre
+    >
+    <br />
+    <h3>
+      Q3. Create a promise function accepting a argument, if yes is passed to
+      the function then it should go to resolved state and print Promise
+      Resolved, and if nothing is passed then it should go to reject state and
+      catch the error and print Promise Rejected
+    </h3>
+    <br />
+    A.
+    <pre>
+ function promiseFunc(arg){
+            let answer = new Promise(function(resolve, reject){
+                setTimeout(function(){
+                    if(arg=="yes")
+                    {
+                        resolve("Promise Resolved");
+                    }
+                    else
+                    {
+                        reject("Promise Rejected");
+                    }
+                },1000)
+            })
+            return answer;
+        }
+        promiseFunc("yes").then(function(res){
+            console.log(res);
+        }).catch(function(err){
+            console.log(err);
+        })
+    o/p:- promise resolved..
+</pre
+    >
+    <br />
+    <h3>Q4.Create example to explain callback function</h3>
+    <br />
+    A.
+    <pre>
+ A callback function is a function passed to another function as an argument. Callbacks promote asynchronous programming
+
+        function findSum(num1, num2, operation){
+            setTimeout(function(){
+                let sum = num1 + num2;
+                operation(num1, num2, sum);
+            }, 2000)
+        }
+        
+        findSum(26, 23, function(num1, num2, sum) -- this is call back
+        {
+            console.log("The sum of",num1,"&",num2,":",sum);
+        })
+</pre
+    >
+    <br />
+    <h3>Q5. Create example to explain callback hell function</h3>
+    <br />
+    A.
+    <pre> function findSum(num1, num2, operation1){ 
+        setTimeout(function(){
+             let sum
+    = num1 + num2;
+     operation1(num1, num2, sum);
+     }, 2000) 
+    }
+    function squareOfSum(num, operation2){
+         setTimeout(function()
+         { let ans = num * num;
+    operation2(num, ans);
+}, 2000) 
+} 
+findSum(2, 3, function(num1, num2, ans1) ----call back 1
+{
+     console.log("The Sum of",num1,"&",num2,":",ans1);
+    squareOfSum(ans1, function(num, ans2){ -----callback 2 
+    console.log("The Square of",num,":",ans2); 
+    })
+    
+         The Sum of 2 & 3 : 5 
+         The Square of 5 : 25
+
+    <p>
+      there are 2 callback functions And since one callback function is nested
+      within another, a callback hell has formed.
+    </p>
+
+    })
+    </pre>
+    <br />
+    <h3>Q6.Create example to explain promises function</h3>
+    <br />
+    A.
+    <pre>
+    function findSum(num1,num2){
+            let prom = new Promise(function(res,rej){
+                setTimeout(function(){
+                    let sum = num1 + num2;
+                    if(isNaN(sum))
+                    {
+                        rej("Try Again! Enter a valid number");
+                    }
+                    else
+                    {
+                        res(sum);
+                    }
+                }, 2000)
+            })
+            return prom;
+        }
+        
+        findSum(26,23).then(function(ans){
+            console.log("Sum =", ans);
+        }).catch(function(err){
+            console.log(err);
+        })
+
+        Sum = 49
+
+        
+        Promise Function are the functions that return a promise object. A promise is an object which represents the completion or failure of an asynchronous operation
+        along with its result. They come with in-built error handling. Here inside the findSum() function, promise object "pr" has been created.
+        Then the function is called and ".then" block is attached to handle the resolved part and ".catch" handles the reject part
+</pre
+    >
+    <br />
+    <h3>Q7. Create example to explain async await function</h3>
+    <br />
+    A.
+    <pre>
+     function findSum(num1,num2){
+            let prom = new Promise(function(res,rej){
+                setTimeout(function(){
+                    let sum = num1 + num2;
+                    if(isNaN(sum))
+                    {
+                        rej("Try Again! Enter a valid number");
+                    }
+                    else
+                    {
+                        res(sum);
+                    }
+                }, 2000)
+            })
+            return prom;
+        }
+
+        async function result(){
+            try
+            {
+                let finalRes = await findSum(37,26);
+                console.log("The Sum = ",finalres);
+            }
+            catch
+            {
+                console.log("Please enter a valid number!");
+            }
+        }
+        result();
+</pre
+    >
+    <br />
+  </body>
+</html>
