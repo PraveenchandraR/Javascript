@@ -1,1 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clouser-HO</title>
+  </head>
+  <body>
+    <pre>
+    <h3>    Q1. "    function counter(){
+    var counter = 0;
 
+    function IncreaseCounter() {
+        return counter += 1;
+    };
+
+    return IncreaseCounter;
+      }
+      
+      var counter = counter();
+      alert(counter());
+      alert(counter());
+      alert(counter());
+      alert(counter());"</h3><br>
+     A. <p>This is a JavaScript code that creates a function "counter" which returns a nested function "IncreaseCounter".
+       The nested function has access to the outer function's variable "counter",
+       which is initialized to 0. When "IncreaseCounter" is called, it increments the value of "counter" by 1 and returns the new value.
+ When this script runs, the variable "counter" is assigned the returned function and four alerts will be displayed in succession,
+ showing the value of counter, which will be 1, 2, 3, and 4. the more number of times we call the counter function the more times counter value 
+increses..</p>   <br>
+
+----------------------------------------------------------------------------------------------------------------------
+    <h3>Q2.<pre> 
+       let count = 0;
+         (function () {
+         if (count === 0) {
+         let count = 1;
+         console.log(count); // inside loop
+         }
+         console.log(count); //outside function
+         })();"</pre></h3><br>
+         A. <pre>
+             1
+             2
+         </pre><br>
+     ------------------------------------------------------------------- ------------------------   
+         <h3>Q3.<pre>for (var i = 0; i< 3; i++) {
+            setTimeout(function log() {
+              console.log(i); inside a asyn function
+            }, 1000);
+          }</pre></h3><br>
+          A. <pre>
+            3
+            3
+            3
+            
+          </pre><br>
+--------------------------------------------------------------------------------------------------
+        <h3>Q4.Write a code to calculate area of a rectangle using inner function.
+         In this case outer function should accept parameter length and inner
+          function should accept parameter breadth.</h3> <br>
+
+        A.  <pre> function len(length) {
+           function breadth(breadth) {
+           console.log(length * breadth);
+             }
+             breadth(20);
+            }
+             length(10);</pre>
+
+          <br>
+       ------------------------------------------------------------------------------------------
+
+        Q5.Take a variable in outer function and create an inner function to increase 
+        the counter every time it is called<br>
+        A. functoion out(){
+          let num=0;
+          return function inner(){
+            return num++;
+          }
+        }
+        let newOut= out();
+        console.log(newOut()); 1st time
+        console.log(newOut()); 2nd time
+        console.log(newOut()); 3rd time<br>
+
+       <p>In this code, the outer function "out" declares a variable "num" which is initialized to 0. 
+        It then returns an inner function "inner" which increments the value of "num" by 1 using the "++" operator 
+        and returns the new value.variable "newOut" is assigned and  returned outter function. Each time "newOut" is called
+       it increases the value of num by 1 and returns the new value. the example above, the inner function is printed three times, 
+       resulting in an output of 1, 2, and 3 respectively.</p> 
+
+        <br>
+        ---------------------------------------------------------------------------------------------------------
+        <h3>6. "Print Output
+           var a = 12; global variable.
+           (function () {
+             alert(a);  
+           })();"</h3><br>
+        A.output is 12;<br>
+        -----------------------------------------------------------------------------
+        <h3>Q7. "var a = 10;
+        var x = (function () {
+          var a = 12;
+          return function () {
+            console.log(a);
+          };
+        })();
+        x();"</h3><br>
+    A.  output is 12<br>
+    --Here function first checks for the local or blcok level variable and as the variable a is declared as 12
+    the out put will be 12 inside the function block scope.
+    ---------------------------------------------------------------------------------------------
+    <h3>
+        Q8."var globalVar = ""xyz"";
+
+(function outerFunc(outerArg) {
+    var outerVar = 'a';
+    
+    (function innerFunc(innerArg) {
+    var innerVar = 'b';
+    
+    console.log(
+        ""outerArg = "" + outerArg + ""\n"" +
+        ""innerArg = "" + innerArg + ""\n"" +
+        ""outerVar = "" + outerVar + ""\n"" +
+        ""innerVar = "" + innerVar + ""\n"" +
+        ""globalVar = "" + globalVar);
+    
+    })(456);
+})(123);"
+    </h3>
+
+
+
+    </pre>
+  </body>
+</html>
